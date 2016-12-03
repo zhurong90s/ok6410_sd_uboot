@@ -1,0 +1,1 @@
+/home/rong/wkpl/O.O/sd-u-boot-2013.01/nand_spl/nand_boot.c

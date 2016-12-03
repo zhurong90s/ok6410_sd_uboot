@@ -1,0 +1,592 @@
+doc/README.silent:   suppressed by testing for the flag "GD_FLG_SILENT" in "gd->flags".
+doc/README.arm-relocation:	detect the real dramsize, and store it in gd->ram_size. Bst detected
+doc/README.arm-relocation:		       or get it from gd->relocaddr in gdb
+doc/README.arm-relocation:specified by gd->relocaddr -- this is only valid after board_init_f.
+doc/README.arm-relocation:(gdb) set $s = gd->relocaddr
+doc/README.standalone:	gd->jt[XF_malloc]	= my_malloc;
+doc/README.standalone:	gd->jt[XF_free]		= my_free;
+doc/README.standalone:	printf("U-Boot relocation offset: %x\n", gd->reloc_off);
+doc/README.standalone:	gd->jt[XF_foobar] = foobar;
+net/net.c:	bd_t *bd = gd->bd;
+net/net.c:	eth_init(gd->bd);
+README:		tree is available in the global data as gd->fdt_blob.
+README:		the global data structure as gd->blob.
+README:		fixing up gd->ram_size the Linux kernel should gets passed
+common/cmd_ambapp.c:		vend->name = (char *)((unsigned int)vend->name + gd->reloc_off);
+common/cmd_ambapp.c:					    gd->reloc_off);;
+common/cmd_ambapp.c:			    (char *)((unsigned int)dev->name + gd->reloc_off);;
+common/env_fat.c:	gd->env_addr = (ulong)&default_environment[0];
+common/env_fat.c:	gd->env_valid = 1;
+common/spl/spl_net.c:	rv = eth_initialize(gd->bd);
+common/spl/spl.c:	gd->bd = &bdata;
+common/spl/spl.c:	gd->baudrate = CONFIG_BAUDRATE;
+common/spl/spl.c:	gd->have_console = 1;
+common/env_nand.c:		gd->env_addr	= 0;
+common/env_nand.c:		gd->env_valid	= 0;
+common/env_nand.c:		gd->env_valid = 1;
+common/env_nand.c:		gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:			gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:	if (gd->env_valid == 2)
+common/env_nand.c:	if (gd->env_valid == 1)
+common/env_nand.c:	gd->env_addr = (ulong)env_ptr->data;
+common/env_nand.c:	gd->env_addr	= (ulong)&default_environment[0];
+common/env_nand.c:	gd->env_valid	= 1;
+common/env_nand.c:	if (gd->env_valid == 1) {
+common/env_nand.c:	gd->env_valid = gd->env_valid == 2 ? 1 : 2;
+common/env_nand.c:		gd->env_valid = 1;
+common/env_nand.c:		gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:			gd->env_valid = 2;
+common/env_nand.c:			gd->env_valid = 1;
+common/env_nand.c:	if (gd->env_valid == 1)
+common/env_eeprom.c:	if (gd->flags & GD_FLG_RELOC) {
+common/env_eeprom.c:	if (gd->env_valid == 2)
+common/env_eeprom.c:	if (gd->env_valid == 2)
+common/env_eeprom.c:	if (gd->env_valid == 1) {
+common/env_eeprom.c:		if (gd->env_valid == 1)
+common/env_eeprom.c:			gd->env_valid = 2;
+common/env_eeprom.c:			gd->env_valid = 1;
+common/env_eeprom.c:		gd->env_addr	= 0;
+common/env_eeprom.c:		gd->env_valid	= 0;
+common/env_eeprom.c:		gd->env_valid = 1;
+common/env_eeprom.c:		gd->env_valid = 2;
+common/env_eeprom.c:			gd->env_valid = 1;
+common/env_eeprom.c:			gd->env_valid = 2;
+common/env_eeprom.c:			gd->env_valid = 2;
+common/env_eeprom.c:			gd->env_valid = 1;
+common/env_eeprom.c:			gd->env_valid = 1;
+common/env_eeprom.c:	if (gd->env_valid == 2)
+common/env_eeprom.c:		gd->env_addr = off_env[1] + offsetof(env_t, data);
+common/env_eeprom.c:	else if (gd->env_valid == 1)
+common/env_eeprom.c:		gd->env_addr = off_env[0] + offsetof(env_t, data);
+common/env_eeprom.c:		gd->env_addr	= offsetof(env_t, data);
+common/env_eeprom.c:		gd->env_valid	= 1;
+common/env_eeprom.c:		gd->env_addr	= 0;
+common/env_eeprom.c:		gd->env_valid	= 0;
+common/cmd_bootm.c:				boot_os[i] += gd->reloc_off;
+common/cmd_bootm.c:			cmd_bootm_sub[i].name += gd->reloc_off;
+common/cmd_bootm.c:							     gd->fdt_blob);
+common/cmd_bootm.c:	if (!(gd->flags & GD_FLG_SILENT))
+common/cmd_bootm.c:	(*loader)(gd->bd, os_hdr, consdev, cmdline);
+common/cmd_bootm.c:	(*entry_point)(gd->bd);
+common/cmd_nvedit.c:		if (entry->callback == clbkp->callback + gd->reloc_off)
+common/cmd_nvedit.c:	if (gd->flags & GD_FLG_ENV_READY) { /* after import into hashtable */
+common/cmd_nvedit.c:	if (getenv_f(name, (char *)(gd->env_buf), sizeof(gd->env_buf)) > 0)
+common/cmd_nvedit.c:		return (char *)(gd->env_buf);
+common/cmd_nvedit.c:	gd->flags |= GD_FLG_ENV_READY;
+common/env_dataflash.c:	if (gd->env_valid)
+common/env_dataflash.c:		gd->env_addr	= offsetof(env_t, data);
+common/env_dataflash.c:		gd->env_valid	= 1;
+common/env_dataflash.c:		gd->env_addr	= (ulong)&default_environment[0];
+common/env_dataflash.c:		gd->env_valid	= 0;
+common/env_sf.c:	if (gd->env_valid == 1) {
+common/env_sf.c:	gd->env_valid = gd->env_valid == 2 ? 1 : 2;
+common/env_sf.c:	printf("Valid environment: %d\n", (int)gd->env_valid);
+common/env_sf.c:		gd->env_valid = 1;
+common/env_sf.c:		gd->env_valid = 2;
+common/env_sf.c:		gd->env_valid = 1;
+common/env_sf.c:		gd->env_valid = 2;
+common/env_sf.c:		gd->env_valid = 2;
+common/env_sf.c:		gd->env_valid = 2;
+common/env_sf.c:		gd->env_valid = 2;
+common/env_sf.c:	if (gd->env_valid == 1)
+common/env_sf.c:		gd->env_valid = 1;
+common/env_sf.c:	gd->env_addr = (ulong)&default_environment[0];
+common/env_sf.c:	gd->env_valid = 1;
+common/cmd_load.c:	load_baudrate = current_baudrate = gd->baudrate;
+common/cmd_load.c:		gd->baudrate = load_baudrate;
+common/cmd_load.c:		gd->baudrate = current_baudrate;
+common/cmd_load.c:	    if (gd->jt[XF_getc] != getc) {
+common/cmd_load.c:	save_baudrate = current_baudrate = gd->baudrate;
+common/cmd_load.c:		gd->baudrate = save_baudrate;
+common/cmd_load.c:		gd->baudrate = current_baudrate;
+common/cmd_load.c:	load_baudrate = current_baudrate = gd->baudrate;
+common/cmd_load.c:		gd->baudrate = load_baudrate;
+common/cmd_load.c:		gd->baudrate = current_baudrate;
+common/cmd_date.c:#define RELOC(a)	((typeof(a))((unsigned long)(a) + gd->reloc_off))
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	print_num("relocaddr", gd->relocaddr);
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	print_num("TLB addr", gd->tlb_addr);
+common/cmd_bdinfo.c:	print_num("relocaddr", gd->relocaddr);
+common/cmd_bdinfo.c:	print_num("reloc off", gd->reloc_off);
+common/cmd_bdinfo.c:	print_num("irq_sp", gd->irq_sp);	/* irq stack pointer */
+common/cmd_bdinfo.c:	print_num("sp start ", gd->start_addr_sp);
+common/cmd_bdinfo.c:	print_num("FB base  ", gd->fb_base);
+common/cmd_bdinfo.c:	printf("ARM frequency = %ld MHz\n", gd->bd->bi_arm_freq);
+common/cmd_bdinfo.c:	printf("DSP frequency = %ld MHz\n", gd->bd->bi_dsp_freq);
+common/cmd_bdinfo.c:	printf("DDR frequency = %ld MHz\n", gd->bd->bi_ddr_freq);
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	print_num("FB base  ", gd->fb_base);
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/cmd_bdinfo.c:	bd_t *bd = gd->bd;
+common/command.c:	if (gd->reloc_off == 0)
+common/command.c:		addr = (ulong) (cmdtp->cmd) + gd->reloc_off;
+common/command.c:		addr = (ulong)(cmdtp->name) + gd->reloc_off;
+common/command.c:			addr = (ulong)(cmdtp->usage) + gd->reloc_off;
+common/command.c:			addr = (ulong)(cmdtp->help) + gd->reloc_off;
+common/command.c:			addr = (ulong)(cmdtp->complete) + gd->reloc_off;
+common/cmd_log.c:	return CONFIG_SYS_SDRAM_BASE + gd->ram_size - LOGBUFF_LEN;
+common/cmd_log.c:	gd->flags |= GD_FLG_LOGINIT;
+common/cmd_log.c:	if ((gd->flags & GD_FLG_LOGINIT)) {
+common/env_mmc.c:	gd->env_addr	= (ulong)&default_environment[0];
+common/env_mmc.c:	gd->env_valid	= 1;
+common/env_common.c:	return *((uchar *)(gd->env_addr + index));
+common/env_common.c:	if (gd->env_valid)
+common/env_common.c:	if (gd->flags & GD_FLG_RELOC)
+common/env_common.c:	if (gd->env_valid)
+common/env_common.c:		return (uchar *)(gd->env_addr + index);
+common/env_common.c:	unsigned long really_valid = gd->env_valid;
+common/env_common.c:	unsigned long real_gd_flags = gd->flags;
+common/env_common.c:	gd->flags &= ~GD_FLG_ENV_READY;
+common/env_common.c:	gd->env_valid = 0;
+common/env_common.c:	gd->env_valid = really_valid;
+common/env_common.c:	gd->flags = real_gd_flags;
+common/env_common.c:	gd->flags |= GD_FLG_ENV_READY;
+common/env_common.c:		gd->flags |= GD_FLG_ENV_READY;
+common/env_common.c:	env_htab.change_ok += gd->reloc_off;
+common/env_common.c:	if (gd->env_valid == 0) {
+common/fdt_support.c: * Global data (for the gd->bd)
+common/dlmalloc.c:		*p = (mbinptr)((ulong)*p + gd->reloc_off);
+common/cmd_fdt.c: * Global data (for the gd->bd)
+common/cmd_fdt.c:		ft_board_setup(working_fdt, gd->bd);
+common/cmd_sound.c:	ret = sound_init(gd->fdt_blob);
+common/lynxkdi.c:	kbd = gd->bd;
+common/env_callback.c:			var_entry->callback = clbkp->callback + gd->reloc_off;
+common/env_callback.c:				ep->callback = clbkp->callback + gd->reloc_off;
+common/hush.c:		addr = (ulong) (r->literal) + gd->reloc_off;
+common/env_nowhere.c:	gd->env_addr	= (ulong)&default_environment[0];
+common/env_nowhere.c:	gd->env_valid	= 0;
+common/cmd_bedbug.c:	top = gd->bd->bi_memstart + gd->bd->bi_memsize;
+common/exports.c:#define EXPORT_FUNC(sym) gd->jt[XF_##sym] = (void *)sym;
+common/exports.c:	gd->jt = malloc(XF_MAX * sizeof(void *));
+common/cmd_immap.c:	ulong clock = gd->cpu_clk;
+common/cmd_immap.c:	ulong clock = gd->brg_clk;
+common/main.c: * JinHua Luo, GuangDong Linux Center, <luo.jinhua@gd-linux.com>
+common/main.c:		gd->flags &= ~GD_FLG_SILENT;
+common/main.c:		gd->flags &= ~GD_FLG_SILENT;
+common/main.c:	addr = fdtdec_get_config_int(gd->fdt_blob, "kernel-offset", 0);
+common/main.c:	addr = fdtdec_get_config_int(gd->fdt_blob, "rootdisk-offset", 0);
+common/main.c:	if (gd->flags & GD_FLG_POSTFAIL) {
+common/main.c:	env = fdtdec_get_config_string(gd->fdt_blob, "bootcmd");
+common/main.c:	process_fdt_options(gd->fdt_blob);
+common/main.c:	if (fdtdec_get_config_int(gd->fdt_blob, "bootsecure", 0))
+common/main.c:	set_working_fdt_addr((void *)gd->fdt_blob);
+common/main.c:	if (gd->flags & GD_FLG_RELOC) {
+common/env_nvram.c:		gd->env_addr	= (ulong)CONFIG_ENV_ADDR + sizeof(long);
+common/env_nvram.c:		gd->env_addr	= (ulong)&env_ptr->data;
+common/env_nvram.c:		gd->env_valid	= 1;
+common/env_nvram.c:		gd->env_addr	= (ulong)&default_environment[0];
+common/env_nvram.c:		gd->env_valid	= 0;
+common/stdio.c:	ulong relocation_offset = gd->reloc_off;
+common/env_onenand.c:		gd->env_valid = 1;
+common/env_onenand.c:	gd->env_addr = (ulong)&default_environment[0];
+common/env_onenand.c:	gd->env_valid = 1;
+common/lcd.c:	lcd_base = (void *)(gd->fb_base);
+common/hwconfig.c:		if (!(gd->flags & GD_FLG_ENV_READY)) {
+common/image.c:	return gd->bd->bi_dram[0].start;
+common/image.c:	return gd->bd->bi_dram[0].size - tmp;
+common/image.c:	return gd->bd->bi_memsize - tmp;
+common/image.c:			return table->lname + gd->reloc_off;
+common/image.c:		if (t->sname && strcmp(t->sname + gd->reloc_off, name) == 0)
+common/image.c:	**kbd = *(gd->bd);
+common/cmd_i2c.c:	if ((gd->flags & GD_FLG_RELOC) != GD_FLG_RELOC) {
+common/env_flash.c:		gd->env_addr	= addr1;
+common/env_flash.c:		gd->env_valid	= 1;
+common/env_flash.c:		gd->env_addr	= addr2;
+common/env_flash.c:		gd->env_valid	= 1;
+common/env_flash.c:		gd->env_addr	= addr_default;
+common/env_flash.c:		gd->env_valid	= 0;
+common/env_flash.c:		gd->env_addr	= addr1;
+common/env_flash.c:		gd->env_valid	= 1;
+common/env_flash.c:		gd->env_addr	= addr2;
+common/env_flash.c:		gd->env_valid	= 1;
+common/env_flash.c:		gd->env_addr	= addr1;
+common/env_flash.c:		gd->env_valid	= 2;
+common/env_flash.c:		gd->env_addr	= addr1;
+common/env_flash.c:		gd->env_valid	= 2;
+common/env_flash.c:		gd->env_addr	= addr2;
+common/env_flash.c:		gd->env_valid	= 2;
+common/env_flash.c:		gd->env_addr	= (ulong)&(env_ptr->data);
+common/env_flash.c:		gd->env_valid	= 1;
+common/env_flash.c:	gd->env_addr	= (ulong)&default_environment[0];
+common/env_flash.c:	gd->env_valid	= 0;
+common/env_flash.c:	if (gd->env_addr != (ulong)&(flash_addr->data)) {
+common/env_flash.c:		gd->env_valid = 2;
+common/env_flash.c:		gd->env_valid = 2;
+common/env_flash.c:	if (gd->env_valid == 2)
+common/cmd_spl.c:				(void *)gd->bd->bi_boot_params);
+common/console.c:	if (console == -1 || (gd->flags & GD_FLG_DEVINIT) == 0)
+common/console.c:		gd->flags |= GD_FLG_SILENT;
+common/console.c:		gd->flags &= ~GD_FLG_SILENT;
+common/console.c:			gd->jt[XF_getc] = dev->getc;
+common/console.c:			gd->jt[XF_tstc] = dev->tstc;
+common/console.c:			gd->jt[XF_putc] = dev->putc;
+common/console.c:			gd->jt[XF_puts] = dev->puts;
+common/console.c:			gd->jt[XF_printf] = printf;
+common/console.c:	if (gd->flags & GD_FLG_DISABLE_CONSOLE)
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (gd->flags & GD_FLG_DEVINIT) {
+common/console.c:	if (gd->flags & GD_FLG_DISABLE_CONSOLE)
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (gd->flags & GD_FLG_DEVINIT) {
+common/console.c:	buffer[CIRC_BUF_IDX(gd->precon_buf_idx++)] = c;
+common/console.c:	if (gd->precon_buf_idx > CONFIG_PRE_CON_BUF_SZ)
+common/console.c:		i = gd->precon_buf_idx - CONFIG_PRE_CON_BUF_SZ;
+common/console.c:	while (i < gd->precon_buf_idx)
+common/console.c:	if (gd->flags & GD_FLG_SILENT)
+common/console.c:	if (gd->flags & GD_FLG_DISABLE_CONSOLE)
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (gd->flags & GD_FLG_DEVINIT) {
+common/console.c:	if (gd->flags & GD_FLG_SILENT)
+common/console.c:	if (gd->flags & GD_FLG_DISABLE_CONSOLE)
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (gd->flags & GD_FLG_DEVINIT) {
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (!gd->have_console)
+common/console.c:	if (!ctrlc_disabled && gd->have_console) {
+common/console.c:	gd->have_console = 1;
+common/console.c:		gd->flags |= GD_FLG_SILENT;
+common/console.c:	gd->jt[XF_getc] = serial_getc;
+common/console.c:	gd->jt[XF_tstc] = serial_tstc;
+common/console.c:	gd->jt[XF_putc] = serial_putc;
+common/console.c:	gd->jt[XF_puts] = serial_puts;
+common/console.c:	gd->jt[XF_printf] = serial_printf;
+common/console.c:	gd->flags |= GD_FLG_DEVINIT;	/* device initialization completed */
+common/console.c:		if (!(gd->flags & GD_FLG_SILENT))
+common/console.c:	gd->flags |= GD_FLG_DEVINIT;	/* device initialization completed */
+common/cmd_mem.c:	board_show_dram(gd->ram_size);
+common/env_remote.c:		gd->env_addr = (ulong)&(env_ptr->data);
+common/env_remote.c:		gd->env_valid = 1;
+common/env_remote.c:	gd->env_addr = (ulong)default_environment;
+common/env_remote.c:	gd->env_valid = 0;
+examples/standalone/test_burst_lib.S:	lwz	r9,20(r2)		/* gd->ram_size */
+examples/standalone/timer.c:	cpmtimerp = &((immap_t *) gd->bd->bi_immr_base)->im_cpmtimer;
+examples/standalone/timer.c:		cpic8xx_t *cpm_icp = &((immap_t *) gd->bd->bi_immr_base)->im_cpic;
+examples/standalone/timer.c:		sysconf8xx_t *siup = &((immap_t *) gd->bd->bi_immr_base)->im_siu_conf;
+examples/standalone/mem_to_mem_idma2intr.c:		dpbase = gd->dp_alloc_base;
+examples/standalone/mem_to_mem_idma2intr.c:	if ((dpbase + size) >= gd->dp_alloc_top) {
+include/configs/FADS823.h:/* #define CONFIG_VIDEO_ADDR (gd->bd->bi_memsize - CONFIG_VIDEO_SIZE) Frame buffer address */
+nand_spl/board/samsung/smdk6410/crt0.S:	ldr	sp, [r8, #GD_START_ADDR_SP]	/* r8 = gd->start_addr_sp */
+nand_spl/board/samsung/smdk6410/crt0.S:	ldr	r8, [r8, #GD_BD]		/* r8 = gd->bd */
+nand_spl/board/samsung/smdk6410/crt0.S:	ldr	r0, [r8, #GD_RELOC_OFF]		/* lr = gd->start_addr_sp */
+nand_spl/board/samsung/smdk6410/crt0.S:	ldr	r0, [r8, #GD_START_ADDR_SP]	/* r0 = gd->start_addr_sp */
+nand_spl/board/samsung/smdk6410/crt0.S:	ldr	r2, [r8, #GD_RELOCADDR]		/* r2 = gd->relocaddr */
+disk/part.c:	name += gd->reloc_off;
+disk/part.c:		name += gd->reloc_off;
+disk/part.c:		reloc_get_dev += gd->reloc_off;
+arch/arm/cpu/arm1176/s3c64xx/timer.c://static ulong gd->arch.timer_rate_hz;
+arch/arm/cpu/arm1176/s3c64xx/timer.c://static unsigned long gd->arch.lastinc;
+arch/arm/cpu/arm1176/s3c64xx/timer.c://static unsigned long long gd->arch.timer_reset_value;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	if (gd->timer_rate_hz == 0) {
+arch/arm/cpu/arm1176/s3c64xx/timer.c:		gd->timer_rate_hz = get_PCLK() / PRESCALER * (100 / 4); /* 100s */
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	gd->lastinc = timers->TCNTB4 = gd->timer_rate_hz;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	gd->timer_reset_value = 0;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	if (gd->lastinc >= now) {
+arch/arm/cpu/arm1176/s3c64xx/timer.c:		gd->timer_reset_value += gd->lastinc - now;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:		gd->timer_reset_value += gd->lastinc + gd->timer_rate_hz - now;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	gd->lastinc = now;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	return gd->timer_reset_value;
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	return (ulong)(gd->timer_rate_hz / 100);
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	do_div (res, (gd->timer_rate_hz / (100 * CONFIG_SYS_HZ)));
+arch/arm/cpu/arm1176/s3c64xx/timer.c:	tmp = get_ticks() + tmo;	/* get current gd->timer_reset_value */
+arch/arm/lib/interrupts.c:	IRQ_STACK_START = gd->irq_sp - 4;
+arch/arm/lib/interrupts.c:	IRQ_STACK_START_IN = gd->irq_sp + 8;
+arch/arm/lib/interrupts.c:	IRQ_STACK_START_IN = gd->irq_sp + 8;
+Binary file arch/arm/lib/.board.c.swp matches
+arch/arm/lib/bootm.c:		    gd->bd->bi_dram[0].start + gd->bd->bi_dram[0].size - sp);
+arch/arm/lib/bootm.c:	bd_t	*bd = gd->bd;
+arch/arm/lib/bootm.c:	ft_board_setup(*of_flat_tree, gd->bd);
+arch/arm/lib/bootm.c:		setup_start_tag(gd->bd);
+arch/arm/lib/bootm.c:		setup_commandline_tag(gd->bd, commandline);
+arch/arm/lib/bootm.c:		setup_memory_tags(gd->bd);
+arch/arm/lib/bootm.c:			setup_initrd_tag(gd->bd, images->rd_start,
+arch/arm/lib/bootm.c:		setup_end_tag(gd->bd);
+arch/arm/lib/bootm.c:	unsigned long machid = gd->bd->bi_arch_number;
+arch/arm/lib/bootm.c:		r2 = gd->bd->bi_boot_params;
+arch/arm/lib/crt0.S:	ldr	sp, [r8, #GD_START_ADDR_SP]	/* r8 = gd->start_addr_sp */
+arch/arm/lib/crt0.S:	ldr	r8, [r8, #GD_BD]		/* r8 = gd->bd */
+arch/arm/lib/crt0.S:	ldr	r0, [r8, #GD_RELOC_OFF]		/* lr = gd->start_addr_sp */
+arch/arm/lib/crt0.S:	ldr	r0, [r8, #GD_START_ADDR_SP]	/* r0 = gd->start_addr_sp */
+arch/arm/lib/crt0.S:	ldr	r2, [r8, #GD_RELOCADDR]		/* r2 = gd->relocaddr */
+arch/arm/lib/board.c:	gd->baudrate = getenv_ulong("baudrate", 10, CONFIG_BAUDRATE);
+arch/arm/lib/board.c:		printf("Bank #%d: %08lx ", i, gd->bd->bi_dram[i].start);
+arch/arm/lib/board.c:		print_size(gd->bd->bi_dram[i].size, "\n");
+arch/arm/lib/board.c:		size += gd->bd->bi_dram[i].size;
+arch/arm/lib/board.c:	gd->bd->bi_dram[0].start = CONFIG_SYS_SDRAM_BASE;
+arch/arm/lib/board.c:	gd->bd->bi_dram[0].size =  gd->ram_size;
+arch/arm/lib/board.c:	gd->mon_len = _bss_end_ofs;
+arch/arm/lib/board.c:	gd->fdt_blob = _binary_dt_dtb_start;
+arch/arm/lib/board.c:	gd->fdt_blob = (void *)(_end_ofs + _TEXT_BASE);
+arch/arm/lib/board.c:	gd->fdt_blob = (void *)getenv_ulong("fdtcontroladdr", 16,
+arch/arm/lib/board.c:						(uintptr_t)gd->fdt_blob);
+arch/arm/lib/board.c:	debug("monitor len: %08lX\n", gd->mon_len);
+arch/arm/lib/board.c:	debug("ramsize: %08lX\n", gd->ram_size);
+arch/arm/lib/board.c:	 * get "touched" at all by U-Boot. By fixing up gd->ram_size
+arch/arm/lib/board.c:	gd->ram_size -= CONFIG_SYS_MEM_TOP_HIDE;
+arch/arm/lib/board.c:	addr = CONFIG_SYS_SDRAM_BASE + gd->ram_size;
+arch/arm/lib/board.c:	gd->tlb_size = 4096 * 4;
+arch/arm/lib/board.c:	addr -= gd->tlb_size;
+arch/arm/lib/board.c:	gd->tlb_addr = addr;
+arch/arm/lib/board.c:	debug("TLB table from %08lx to %08lx\n", addr, addr + gd->tlb_size);
+arch/arm/lib/board.c:	gd->fb_base = CONFIG_FB_ADDR;
+arch/arm/lib/board.c:	gd->fb_base = addr;
+arch/arm/lib/board.c:	addr -= gd->mon_len;
+arch/arm/lib/board.c:	debug("Reserving %ldk for U-Boot at: %08lx\n", gd->mon_len >> 10, addr);
+arch/arm/lib/board.c:	gd->bd = bd;
+arch/arm/lib/board.c:	gd->bd->bi_arch_number = CONFIG_MACH_TYPE; /* board id for Linux */
+arch/arm/lib/board.c:	if (gd->fdt_blob) {
+arch/arm/lib/board.c:		fdt_size = ALIGN(fdt_totalsize(gd->fdt_blob) + 0x1000, 32);
+arch/arm/lib/board.c:	gd->irq_sp = addr_sp;
+arch/arm/lib/board.c:	gd->irq_sp = addr_sp;
+arch/arm/lib/board.c:	gd->bd->bi_baudrate = gd->baudrate;
+arch/arm/lib/board.c:	gd->relocaddr = addr;
+arch/arm/lib/board.c:	gd->start_addr_sp = addr_sp;
+arch/arm/lib/board.c:	gd->reloc_off = addr - _TEXT_BASE;
+arch/arm/lib/board.c:	debug("relocation Offset is: %08lx\n", gd->reloc_off);
+arch/arm/lib/board.c:		memcpy(new_fdt, gd->fdt_blob, fdt_size);
+arch/arm/lib/board.c:		gd->fdt_blob = new_fdt;
+arch/arm/lib/board.c:	return fdtdec_get_config_int(gd->fdt_blob, "load-environment", 0);
+arch/arm/lib/board.c:	gd->flags |= GD_FLG_RELOC;	/* tell others: relocation done */
+arch/arm/lib/board.c:	mmc_initialize(gd->bd);
+arch/arm/lib/board.c:	display_fdt_model(gd->fdt_blob);
+arch/arm/lib/board.c:	eth_initialize(gd->bd);
+arch/arm/lib/board.c:		sprintf((char *)memsz, "%ldk", (gd->ram_size / 1024) - pram);
+arch/arm/lib/cache-cp15.c:	u32 *page_table = (u32 *)gd->tlb_addr;
+arch/arm/lib/cache-cp15.c:	u32 *page_table = (u32 *)gd->tlb_addr;
+arch/arm/lib/cache-cp15.c:	bd_t *bd = gd->bd;
+arch/arm/lib/cache-cp15.c:		     : : "r" (gd->tlb_addr) : "memory");
+api/api_net.c:	if (eth_init(gd->bd) < 0)
+api/api_platform-arm.c:		platform_set_mr(si, gd->bd->bi_dram[i].start,
+api/api_platform-arm.c:				gd->bd->bi_dram[i].size, MR_ATTR_DRAM);
+api/api_platform-powerpc.c:	si->clk_bus = gd->bus_clk;
+api/api_platform-powerpc.c:	si->clk_cpu = gd->cpu_clk;
+api/api_platform-powerpc.c:	si->bar = gd->bd->bi_bar;
+api/api_platform-powerpc.c:	platform_set_mr(si, gd->bd->bi_memstart, gd->bd->bi_memsize, MR_ATTR_DRAM);
+api/api_platform-powerpc.c:	platform_set_mr(si, gd->bd->bi_flashstart, gd->bd->bi_flashsize, MR_ATTR_FLASH);
+api/api_platform-powerpc.c:	platform_set_mr(si, gd->bd->bi_sramstart, gd->bd->bi_sramsize, MR_ATTR_SRAM);
+post/cpu/ppc4xx/spr.c:	change_tlb(gd->bd->bi_memstart, gd->bd->bi_memsize, TLB_WORD2_I_ENABLE);
+post/cpu/ppc4xx/spr.c:	change_tlb(gd->bd->bi_memstart, gd->bd->bi_memsize, 0);
+post/cpu/ppc4xx/uart.c:	divisor = (get_serial_clock() + (gd->baudrate * (16 / 2))) /
+post/cpu/ppc4xx/uart.c:		(16 * gd->baudrate);
+post/cpu/mpc8xx/uart.c:			(((gd->cpu_clk / 16 / gd->baudrate) -
+post/cpu/mpc8xx/uart.c:			(((gd->cpu_clk / 16 / gd->baudrate) -
+post/lib_powerpc/cpu.c:	change_tlb(gd->bd->bi_memstart, gd->bd->bi_memsize, TLB_WORD2_I_ENABLE);
+post/lib_powerpc/cpu.c:	change_tlb(gd->bd->bi_memstart, gd->bd->bi_memsize, 0);
+post/post.c:	gd->post_init_f_time = post_time_ms(0);
+post/post.c:	if (!gd->post_init_f_time)
+post/post.c:	gd->post_log_word = 0;
+post/post.c:	gd->post_log_res = 0;
+post/post.c:	gd->post_log_word |= testid;
+post/post.c:	gd->post_log_res |= testid;
+post/post.c:		if (gd->post_log_word & (post_list[j].testid)) {
+post/post.c:			if (gd->post_log_res & post_list[j].testid)
+post/post.c:					(gd->flags & GD_FLG_POSTFAIL) ?
+post/post.c:					gd->flags |= GD_FLG_POSTFAIL;
+post/post.c:					gd->flags |= GD_FLG_POSTSTOP;
+post/post.c:					gd->flags |= GD_FLG_POSTFAIL;
+post/post.c:					gd->flags |= GD_FLG_POSTSTOP;
+post/post.c:		if (gd->flags & GD_FLG_POSTSTOP)
+post/post.c:				gd->flags |= GD_FLG_POSTFAIL;
+post/post.c:					if (gd->flags & GD_FLG_POSTSTOP)
+post/post.c:				if (gd->flags & GD_FLG_POSTSTOP)
+post/post.c:			addr = (ulong)(test->name) + gd->reloc_off;
+post/post.c:			addr = (ulong)(test->cmd) + gd->reloc_off;
+post/post.c:			addr = (ulong)(test->desc) + gd->reloc_off;
+post/post.c:			addr = (ulong)(test->test) + gd->reloc_off;
+post/post.c:			addr = (ulong)(test->init_f) + gd->reloc_off;
+post/post.c:			addr = (ulong)(test->reloc) + gd->reloc_off;
+post/board/lwmon/sysmon.c:		while (post_time_ms(gd->post_init_f_time) < 300) WATCHDOG_RESET ();
+post/drivers/memory.c:	bd_t *bd = gd->bd;
+post/drivers/memory.c:	*size = (gd->ram_size >= 256 << 20 ?
+post/drivers/memory.c:			256 << 20 : gd->ram_size) - (1 << 20);
+fs/ubifs/ubifs.c:	ubifs_compressors[compr->compr_type]->name += gd->reloc_off;
+fs/ubifs/ubifs.c:	ubifs_compressors[compr->compr_type]->capi_name += gd->reloc_off;
+fs/ubifs/ubifs.c:	ubifs_compressors[compr->compr_type]->decompress += gd->reloc_off;
+fs/fs.c:			fstypes[i].probe += gd->reloc_off;
+board/samsung/goni/goni.c:	gd->bd->bi_arch_number = MACH_TYPE_GONI;
+board/samsung/goni/goni.c:	gd->bd->bi_boot_params = PHYS_SDRAM_1 + 0x100;
+board/samsung/goni/goni.c:	gd->ram_size = PHYS_SDRAM_1_SIZE + PHYS_SDRAM_2_SIZE +
+board/samsung/goni/goni.c:	gd->bd->bi_dram[0].start = PHYS_SDRAM_1;
+board/samsung/goni/goni.c:	gd->bd->bi_dram[0].size = PHYS_SDRAM_1_SIZE;
+board/samsung/goni/goni.c:	gd->bd->bi_dram[1].start = PHYS_SDRAM_2;
+board/samsung/goni/goni.c:	gd->bd->bi_dram[1].size = PHYS_SDRAM_2_SIZE;
+board/samsung/goni/goni.c:	gd->bd->bi_dram[2].start = PHYS_SDRAM_3;
+board/samsung/goni/goni.c:	gd->bd->bi_dram[2].size = PHYS_SDRAM_3_SIZE;
+board/samsung/smdk6410/smdk6410.c:	gd->bd->bi_boot_params = PHYS_SDRAM_1 + 0x100;
+board/samsung/smdk6410/smdk6410.c:	gd->bd->bi_dram[0].start = PHYS_SDRAM_1;
+board/samsung/smdk6410/smdk6410.c:	gd->bd->bi_dram[0].size = PHYS_SDRAM_1_SIZE;
+board/samsung/smdk6410/smdk6410.c:	gd->ram_size = get_ram_size((long *)CONFIG_SYS_SDRAM_BASE,
+board/samsung/trats/trats.c:	gd->bd->bi_boot_params = CONFIG_SYS_SPL_ARGS_ADDR;
+board/samsung/trats/trats.c:	gd->ram_size = get_ram_size((long *)PHYS_SDRAM_1, PHYS_SDRAM_1_SIZE) +
+board/samsung/trats/trats.c:	gd->bd->bi_dram[0].start = PHYS_SDRAM_1;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[0].size = PHYS_SDRAM_1_SIZE;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[1].start = PHYS_SDRAM_2;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[1].size = PHYS_SDRAM_2_SIZE;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[2].start = PHYS_SDRAM_3;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[2].size = PHYS_SDRAM_3_SIZE;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[3].start = PHYS_SDRAM_4;
+board/samsung/trats/trats.c:	gd->bd->bi_dram[3].size = PHYS_SDRAM_4_SIZE;
+board/samsung/origen/origen.c:	gd->bd->bi_boot_params = (PHYS_SDRAM_1 + 0x100UL);
+board/samsung/origen/origen.c:	gd->ram_size	= get_ram_size((long *)PHYS_SDRAM_1, PHYS_SDRAM_1_SIZE)
+board/samsung/origen/origen.c:	gd->bd->bi_dram[0].start = PHYS_SDRAM_1;
+board/samsung/origen/origen.c:	gd->bd->bi_dram[0].size = get_ram_size((long *)PHYS_SDRAM_1, \
+board/samsung/origen/origen.c:	gd->bd->bi_dram[1].start = PHYS_SDRAM_2;
+board/samsung/origen/origen.c:	gd->bd->bi_dram[1].size = get_ram_size((long *)PHYS_SDRAM_2, \
+board/samsung/origen/origen.c:	gd->bd->bi_dram[2].start = PHYS_SDRAM_3;
+board/samsung/origen/origen.c:	gd->bd->bi_dram[2].size = get_ram_size((long *)PHYS_SDRAM_3, \
+board/samsung/origen/origen.c:	gd->bd->bi_dram[3].start = PHYS_SDRAM_4;
+board/samsung/origen/origen.c:	gd->bd->bi_dram[3].size = get_ram_size((long *)PHYS_SDRAM_4, \
+board/samsung/universal_c210/universal.c:	gd->ram_size = get_ram_size((long *)PHYS_SDRAM_1, PHYS_SDRAM_1_SIZE) +
+board/samsung/universal_c210/universal.c:	gd->bd->bi_dram[0].start = PHYS_SDRAM_1;
+board/samsung/universal_c210/universal.c:	gd->bd->bi_dram[0].size = PHYS_SDRAM_1_SIZE;
+board/samsung/universal_c210/universal.c:	gd->bd->bi_dram[1].start = PHYS_SDRAM_2;
+board/samsung/universal_c210/universal.c:	gd->bd->bi_dram[1].size = PHYS_SDRAM_2_SIZE;
+board/samsung/universal_c210/universal.c:	gd->bd->bi_arch_number = MACH_TYPE_UNIVERSAL_C210;
+board/samsung/universal_c210/universal.c:	gd->bd->bi_boot_params = PHYS_SDRAM_1 + 0x100;
+drivers/net/mpc5xxx_fec.c:		fec->eth->mii_speed = (((gd->ipb_clk >> 20) / 5) << 1);	/* No MII for 7-wire mode */
+drivers/net/mpc5xxx_fec.c:		fec->eth->mii_speed = (((gd->ipb_clk >> 20) / 5) << 1); /* No MII for 7-wire mode */
+drivers/net/mpc5xxx_fec.c:		fec->eth->mii_speed = (((gd->ipb_clk >> 20) / 5) << 1); /* No MII for 7-wire mode */
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].init, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].mdio_active, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].mdio_tristate, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].set_mdio, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].get_mdio, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].set_mdc, gd->reloc_off);
+drivers/net/phy/miiphybb.c:		BB_MII_RELOCATE(bb_miiphy_buses[i].delay, gd->reloc_off);
+drivers/net/mcfmii.c:	miispd = (gd->bus_clk / 1000000) / 5;
+drivers/net/mpc512x_fec.c:			 (((gd->ips_clk / 1000000) / 5) + 1) << 1);
+drivers/net/netconsole.c:			if (eth_init(gd->bd) < 0)
+drivers/net/netconsole.c:			eth_init_state_only(gd->bd);
+drivers/net/mvgbe.c:		win_param.base_addr = gd->bd->bi_dram[i].start;
+drivers/net/mvgbe.c:		win_param.size = gd->bd->bi_dram[i].size;
+drivers/net/xilinx_emaclite.c:		offset = fdt_node_offset_by_compatible(gd->fdt_blob, offset,
+drivers/net/xilinx_emaclite.c:			reg = fdtdec_get_addr(gd->fdt_blob, offset, "reg");
+drivers/net/xilinx_emaclite.c:				u32 rxpp = fdtdec_get_int(gd->fdt_blob, offset,
+drivers/net/xilinx_emaclite.c:				u32 txpp = fdtdec_get_int(gd->fdt_blob, offset,
+drivers/mmc/spl_mmc.c:	mmc_initialize(gd->bd);
+drivers/mmc/fsl_esdhc.c:	mmc->f_max = MIN(gd->sdhc_clk, 52000000);
+drivers/mmc/fsl_esdhc.c:	cfg->sdhc_clk = gd->sdhc_clk;
+drivers/mmc/fsl_esdhc.c:			       gd->sdhc_clk, 1);
+drivers/bootcount/bootcount_ram.c:		size += gd->bd->bi_dram[i].size;
+drivers/bootcount/bootcount_ram.c:		size += gd->bd->bi_dram[i].size;
+drivers/usb/host/ehci-marvell.c:		size = gd->bd->bi_dram[i].size;
+drivers/usb/host/ehci-marvell.c:		base = gd->bd->bi_dram[i].start;
+drivers/usb/host/ehci-exynos.c:	exynos_usb_parse_dt(gd->fdt_blob, exynos);
+drivers/usb/host/ehci-exynos.c:	exynos_usb_parse_dt(gd->fdt_blob, exynos);
+drivers/usb/gadget/mpc8xx_udc.c:	if (gd->cpu_clk < 48000000L) {
+drivers/usb/gadget/mpc8xx_udc.c:	/* Assume the brgclk is 'good enough', we want !(gd->cpu_clk%48MHz)
+drivers/usb/gadget/mpc8xx_udc.c:	divisor = (gd->cpu_clk / 48000000L) - 1;
+drivers/spi/exynos_spi.c:	const void *blob = gd->fdt_blob;
+drivers/spi/cf_spi.c:	if ((cfslave->baudrate > (gd->bus_clk >> 1)) ||
+drivers/spi/cf_spi.c:	    (cfslave->baudrate < (gd->bus_clk / tmp))) {
+drivers/spi/cf_spi.c:		       (int)(gd->bus_clk >> 1), (int)(gd->bus_clk / tmp));
+drivers/spi/cf_spi.c:	    (cfslave->baudrate > (gd->bus_clk / (prescaler[0] * scaler[0])))) {
+drivers/spi/cf_spi.c:		baud_speed = gd->bus_clk / prescaler[i];
+drivers/spi/cf_qspi.c:		dev->qmr = clamp(((gd->bus_clk >> 2) + max_hz - 1)/max_hz,
+drivers/video/cfb_console.c:	bd_t *bd = gd->bd;
+drivers/video/tegra.c:		if (tegra_display_probe(gd->fdt_blob, (void *)gd->fb_base)) {
+drivers/serial/serial_max3100.c:	switch (gd->baudrate) {
+drivers/serial/serial_ixp.c:	if ((gd->baudrate <= SERIAL_CLOCK) && (SERIAL_CLOCK % gd->baudrate == 0))
+drivers/serial/serial_ixp.c:		quot = SERIAL_CLOCK / gd->baudrate;
+drivers/serial/serial_ks8695.c:	uartp->BD = KS8695_UART_CLK / gd->baudrate;
+drivers/serial/serial_sh.c:	sci_out(&sh_sci, SCBRR, SCBRR_VALUE(gd->baudrate, CONFIG_SYS_CLK_FREQ));
+drivers/serial/altera_uart.c:	div = (CONFIG_SYS_CLK_FREQ/gd->baudrate)-1;
+drivers/serial/serial_s5p.c:	u32 baudrate = gd->baudrate;
+drivers/serial/lpc32xx_hsuart.c:	div = (get_serial_clock() / 14 + gd->baudrate / 2) / gd->baudrate - 1;
+drivers/serial/serial.c:		if (gd->baudrate == baudrate)
+drivers/serial/serial.c:		gd->baudrate = baudrate;
+drivers/serial/serial.c:		gd->bd->bi_baudrate = baudrate;
+drivers/serial/serial.c:		dev->start += gd->reloc_off;
+drivers/serial/serial.c:		dev->stop += gd->reloc_off;
+drivers/serial/serial.c:		dev->setbrg += gd->reloc_off;
+drivers/serial/serial.c:		dev->getc += gd->reloc_off;
+drivers/serial/serial.c:		dev->tstc += gd->reloc_off;
+drivers/serial/serial.c:		dev->putc += gd->reloc_off;
+drivers/serial/serial.c:		dev->puts += gd->reloc_off;
+drivers/serial/serial.c:	if (!(gd->flags & GD_FLG_RELOC))
+drivers/serial/serial.c:	bd_t *bd = gd->bd;
+drivers/serial/serial_pxa.c:	if (gd->baudrate == 1200)
+drivers/serial/serial_pxa.c:	else if (gd->baudrate == 9600)
+drivers/serial/serial_pxa.c:	else if (gd->baudrate == 19200)
+drivers/serial/serial_pxa.c:	else if (gd->baudrate == 38400)
+drivers/serial/serial_pxa.c:	else if (gd->baudrate == 57600)
+drivers/serial/serial_pxa.c:	else if (gd->baudrate == 115200)
+drivers/serial/ns9750_serial.c:		       ( gd->baudrate * 16 ) ) - 1 ) &
+drivers/serial/serial_sa1100.c:	if (gd->baudrate == 1200)
+drivers/serial/serial_sa1100.c:	else if (gd->baudrate == 9600)
+drivers/serial/serial_sa1100.c:	else if (gd->baudrate == 19200)
+drivers/serial/serial_sa1100.c:	else if (gd->baudrate == 38400)
+drivers/serial/serial_sa1100.c:	else if (gd->baudrate == 57600)
+drivers/serial/serial_sa1100.c:	else if (gd->baudrate == 115200)
+drivers/serial/atmel_usart.c:	divisor = (usart_hz / 16 + gd->baudrate / 2) / gd->baudrate;
+drivers/serial/serial_s3c24x0.c:	reg = get_PCLK() / (16 * gd->baudrate) - 1;
+drivers/serial/serial_mxc.c:	if (!gd->baudrate)
+drivers/serial/serial_mxc.c:		gd->baudrate = CONFIG_BAUDRATE;
+drivers/serial/serial_mxc.c:	__REG(UART_PHYS + UBMR) = clk / (2 * gd->baudrate);
+drivers/serial/serial_ns16550.c:	if ((CONFIG_SYS_NS16550_CLK == 12000000) && (gd->baudrate == 115200)) {
+drivers/serial/serial_ns16550.c:	if ((CONFIG_SYS_NS16550_CLK == 48000000) && (gd->baudrate == 115200)) {
+drivers/serial/serial_ns16550.c:	 *   CONFIG_SYS_NS16550_CLK) / MODE_X_DIV / gd->baudrate
+drivers/serial/serial_ns16550.c:	return (CONFIG_SYS_NS16550_CLK + (gd->baudrate * (MODE_X_DIV / 2))) /
+drivers/serial/serial_ns16550.c:		(MODE_X_DIV * gd->baudrate);
+drivers/serial/s3c64xx.c:	u32 baudrate = gd->baudrate;
+drivers/serial/serial_pl01x.c:	baudrate = gd->baudrate;
+drivers/serial/opencores_yanu.c:		    gd->baudrate) {
+drivers/serial/opencores_yanu.c:		if (gd->baudrate <= (max_uns >> (15+n-k)))
+drivers/serial/opencores_yanu.c:	    (gd->baudrate * (1 << (15 + n - k))) /
+drivers/serial/serial_imx.c:	base->ubir = (gd->baudrate / 100) - 1;
+drivers/serial/serial_s3c44b0.c:	switch(gd->baudrate) {
+drivers/serial/mcfuart.c:	counter = (u32) ((gd->bus_clk / 32) + (gd->baudrate / 2));
+drivers/serial/mcfuart.c:	counter = counter / gd->baudrate;
+drivers/serial/mcfuart.c:	counter = (u32) ((gd->bus_clk / 32) + (gd->baudrate / 2));
+drivers/serial/mcfuart.c:	counter = counter / gd->baudrate;
+drivers/input/ps2ser.c:	baseclk = (gd->ipb_clk + 16) / 32;
+drivers/input/tegra-kbc.c:	node = fdtdec_next_compatible(gd->fdt_blob, 0,
+drivers/input/tegra-kbc.c:	config.kbc = (struct kbc_tegra *)fdtdec_get_addr(gd->fdt_blob,
+drivers/input/tegra-kbc.c:	if (key_matrix_decode_fdt(&config.matrix, gd->fdt_blob, node)) {
+drivers/mtd/nand/tegra_nand.c:	node = fdtdec_next_compatible(gd->fdt_blob, 0,
+drivers/mtd/nand/tegra_nand.c:	if (fdt_decode_nand(gd->fdt_blob, node, config)) {
+drivers/qe/fdt.c:		"bus-frequency", gd->qe_clk, 1);
+drivers/qe/fdt.c:		"brg-frequency", gd->brg_clk, 1);
+drivers/qe/fdt.c:		"clock-frequency", gd->qe_clk, 1);
+drivers/qe/fdt.c:		"bus-frequency", gd->qe_clk, 1);
+drivers/qe/fdt.c:		"brg-frequency", gd->brg_clk, 1);
+drivers/qe/fdt.c:		"clock-frequency", gd->qe_clk / 2, 1);
+drivers/qe/qe.c:	savebase = gd->mp_alloc_base;
+drivers/qe/qe.c:	if ((off = (gd->mp_alloc_base & align_mask)) != 0)
+drivers/qe/qe.c:		gd->mp_alloc_base += (align - off);
+drivers/qe/qe.c:	if ((gd->mp_alloc_base + size) >= gd->mp_alloc_top) {
+drivers/qe/qe.c:		gd->mp_alloc_base = savebase;
+drivers/qe/qe.c:	retloc = gd->mp_alloc_base;
+drivers/qe/qe.c:	gd->mp_alloc_base += size;
+drivers/qe/qe.c:	gd->mp_alloc_base = QE_DATAONLY_BASE;
+drivers/qe/qe.c:	gd->mp_alloc_top = gd->mp_alloc_base + QE_DATAONLY_SIZE;
+drivers/qe/qe.c:#define BRG_CLK		(gd->brg_clk)
+drivers/power/pmic/pmic_max77686.c:	const void *blob = gd->fdt_blob;
+drivers/i2c/omap24xx_i2c.c:	if (gd->flags & GD_FLG_RELOC)
+drivers/i2c/tegra_i2c.c:	const void *blob = gd->fdt_blob;
+drivers/i2c/fsl_i2c.c:		return gd->i2c2_clk;	/* I2C2 clock */
+drivers/i2c/fsl_i2c.c:		return gd->i2c1_clk;	/* I2C1 clock */
+drivers/i2c/fsl_i2c.c:		if (gd->flags & GD_FLG_RELOC)
+drivers/i2c/fsl_i2c.c:	unsigned int i2c_clk = (i2c_bus_num == 1) ? gd->i2c2_clk : gd->i2c1_clk;
+drivers/pci/fsl_pci_init.c:	u64 sz = min((u64)gd->ram_size, (1ull << 32));
+drivers/pci/fsl_pci_init.c:	pci_sz = 1ull << __ilog2_u64(gd->ram_size);
+drivers/pci/fsl_pci_init.c:	if (gd->ram_size > pci_sz)
+drivers/pci/fsl_pci_init.c:		pci_sz = 1ull << (__ilog2_u64(gd->ram_size) + 1);
+drivers/pci/fsl_pci_init.c:	if (sz && (((u64)gd->ram_size) < (1ull << 32)))
+lib/fdtdec.c:	if (((uintptr_t)gd->fdt_blob & 3) || fdt_check_header(gd->fdt_blob)) {

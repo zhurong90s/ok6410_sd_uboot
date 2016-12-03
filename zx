@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo dd if=u-boot.bin of=/dev/sdb bs=512 count=16 seek=3842030
+sleep 1 
+sudo dd if=u-boot.bin of=/dev/sdb bs=512 seek=3841398
+sleep 5

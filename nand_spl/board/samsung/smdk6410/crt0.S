@@ -1,0 +1,1 @@
+/home/rong/wkpl/O.O/sd-u-boot-2013.01/arch/arm/lib/crt0.S

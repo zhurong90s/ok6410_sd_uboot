@@ -1,0 +1,1 @@
+/home/rong/wkpl/O.O/sd-u-boot-2013.01/board/samsung/smdk6410/lowlevel_init.S
